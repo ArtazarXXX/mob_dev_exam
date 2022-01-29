@@ -10,14 +10,11 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.*
 import com.example.exam.databinding.ActivityMainBinding
 
-interface ActivityFunctions {
-    fun cardEvent(e: String)
-}
 
 class MainActivity : AppCompatActivity() {
 
-    private val verticalLinearLayoutManager: LinearLayoutManager =
-        LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    private val horizontalLinearLayoutManager: LinearLayoutManager =
+        LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -27,9 +24,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val layoutManager = LinearLayoutManager(this)
         binding.apply {
-            recyclerView.layoutManager = verticalLinearLayoutManager
+            recyclerView.layoutManager = horizontalLinearLayoutManager
             recyclerView.adapter = Adapter()
         }
     }
